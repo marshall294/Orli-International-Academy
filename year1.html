@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Orli International Academy - Year 1 Portal. Login to access notes, live classes, assessments, and schedules.">
+    <meta name="keywords" content="Orli International Academy, Year 1, Children, Education, Live Class, Assessment, Schedule">
+    <meta name="author" content="Orli International Academy">
+    <title>Orli International Academy - Year 1</title>
+    <style>
+        /* General Body Style */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #F1C40F, #2980B9);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        h2, h3 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .welcome-message {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+
+        .motto {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        /* Date & Time */
+        .date-time {
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        /* Card Styling */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            width: 220px;
+            height: 140px;
+            background-color: #FFD700;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2980B9;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 20px;
+            border: 2px solid #fff;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background-color: #F39C12;
+        }
+
+        a {
+            color: #3498DB;
+            text-decoration: none;
+        }
+
+        /* Footer Styling */
+        footer {
+            margin-top: auto;
+            padding: 15px;
+            background-color: #2C3E50;
+            color: #fff;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Login Page Style */
+        .login-container {
+            background-color: #fff;
+            color: #2980B9;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .login-container h2 {
+            color: #3498DB;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #3498DB;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #2980B9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card-container {
+                flex-direction: column;
+            }
+
+            .card {
+                width: 80%;
+            }
+
+            .logo-container {
+                width: 130px;
+                height: 130px;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div class="login-container">
+        <div class="logo-container">
+            <img src="logo.png" alt="Orli International Academy Logo">
+        </div>
+        <h2>Orli International Academy</h2>
+        <h3>Year 1 Login Page</h3>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="button" onclick="validateLogin()">Login</button>
+        </form>
+    </div>
+
+    <!-- Main Page Content -->
+    <div id="main-content" style="display:none;">
+        <div class="logo-container">
+            <img src="logo.png" alt="Orli International Academy Logo">
+        </div>
+        <h1>Orli International Academy</h1>
+        <h2>Year 1 Class</h2>
+        <p class="welcome-message">Welcome to Year 1 Class</p>
+        <p class="motto">Raising a well-informed child</p>
+        <p class="date-time" id="dateTime"></p>
+
+        <div class="card-container">
+            <div class="card"><a href="#">Notes</a></div>
+            <div class="card"><a href="#">Live Class</a></div>
+            <div class="card"><a href="assessment1.html">Assessment</a></div>
+            <div class="card"><a href="#">Schedule</a></div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Orli International Academy. All Rights Reserved.</p>
+        <p>Visit us: <a href="https://www.orliacademy.com">www.orliacademy.com</a></p>
+    </footer>
+
+    <script>
+        // Function to validate login credentials
+        function validateLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "year1@orli" && password === "orli001") {
+                document.querySelector(".login-container").style.display = 'none';
+                document.getElementById("main-content").style.display = 'block';
+            } else {
+                alert("Invalid login credentials");
+            }
+        }
+
+        // Function to display the current date and time
+        function displayDateTime() {
+            var now = new Date();
+            var date = now.toLocaleDateString();
+            var time = now.toLocaleTimeString();
+            document.getElementById('dateTime').innerText = "Date: " + date + " | Time: " + time;
+        }
+
+        // Update date and time every second
+        setInterval(displayDateTime, 1000);
+
+        // Initially display the date and time
+        displayDateTime();
+    </script>
+</body>
+</html>

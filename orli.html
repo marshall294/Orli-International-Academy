@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orli International School - Class Resources</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #FFFFF4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 3D Colorful School Name */
+        .school-name {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: blue;
+            text-shadow: 3px 3px 0px #347C17, 6px 6px 0px #B8BC86, 9px 9px 0px blue;
+            margin-top: 70px;
+        }
+
+        /* Animated welcome message */
+        .welcome-message {
+            text-align: center;
+            font-size: 2.2em;
+            color: #12E193;
+            margin-top: 15px;
+            animation: bounce 2s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Animated captions moving from right to left */
+        .captions {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            overflow: hidden;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .captions p {
+            white-space: nowrap;
+            font-size: 1.5em;
+            color: black;
+            margin: 0 50px;
+            animation: slide-left 25s linear infinite;
+        }
+
+        @keyframes slide-left {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* School logo animation */
+        .logo-container {
+            text-align: center;
+            margin-top: 60px; /* Adjust to create space from the captions */
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: none;
+            animation: rotateLogo 5s infinite linear;
+        }
+
+        @keyframes rotateLogo {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Class thumbnail grid */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .class-card {
+            background-color: #12E193;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .class-card img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .class-card h2 {
+            font-size: 1.5em;
+            margin: 0;
+            color: #ff6f61;
+        }
+
+        .class-card p {
+            font-size: 1em;
+            color: #333;
+        }
+
+        .class-card:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        /* Dropdown Button */
+        .dropdown {
+            position: absolute;
+            top: 35px;
+            right: 80px;
+        }
+
+        .dropbtn {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #ff4b47;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Dropdown for login -->
+    <div class="dropdown">
+        <button class="dropbtn">Login</button>
+        <div class="dropdown-content">
+            <a href="admin-login.html">Login as Admin</a>
+            <a href="head-login.html">Login as Head of School</a>
+            <a href="teacher-login.html">Login as Teacher</a>
+            <a href="student-login.html">Login as Student</a>
+            <a href="parent-login.html">Login as Parent</a>
+        </div>
+    </div>
+
+    <!-- 3D School Name -->
+    <div class="school-name">
+        Orli International School
+    </div>
+
+    <!-- Animated Welcome Message -->
+    <div class="welcome-message">
+        Welcome to Our Learning Journey!
+    </div>
+
+    <!-- Five Animated Captions Sliding from Right to Left -->
+    <div class="captions">
+        <p>Explore, Learn, and Grow!</p>
+        <p>Year 1 to Year 6, your learning path is here!</p>
+        <p>Every day is an adventure at Orli International School!</p>
+        <p>Discover knowledge, unleash potential!</p>
+    </div>
+
+    <!-- School Logo in Circular Frame -->
+    <div class="logo-container">
+        <img src="logo.png" alt="Orli International School Logo">
+    </div>
+
+    <div class="container">
+        <!-- Class Navigation Thumbnails -->
+        <div class="class-grid">
+            <!-- Class 1 -->
+            <a href="year1.html" class="class-card">
+                <img src="year1.png" alt="Year 1">
+                <h2>Year 1</h2>
+                <p>Explore Year 1 Resources</p>
+            </a>
+
+            <!-- Class 2 -->
+            <a href="year2.html" class="class-card">
+                <img src="year2.png" alt="Year 2">
+                <h2>Year 2</h2>
+                <p>Explore Year 2 Resources</p>
+            </a>
+
+            <!-- Class 3 -->
+            <a href="year3.html" class="class-card">
+                <img src="year3.png" alt="Year 3">
+                <h2>Year 3</h2>
+                <p>Explore Year 3 Resources</p>
+            </a>
+
+            <!-- Class 4 -->
+            <a href="year4.html" class="class-card">
+                <img src="year4.png" alt="Year 4">
+                <h2>Year 4</h2>
+                <p>Explore Year 4 Resources</p>
+            </a>
+
+            <!-- Class 5 -->
+            <a href="year5.html" class="class-card">
+                <img src="year5.png" alt="Year 5">
+                <h2>Year 5</h2>
+                <p>Explore Year 5 Resources</p>
+            </a>
+
+            <!-- Class 6 -->
+            <a href="year6.html" class="class-card">
+                <img src="year6.png" alt="Year 6">
+                <h2>Year 6</h2>
+                <p>Explore Year 6 Resources</p>
+            </a>
+
+            <!-- Support Corner Thumbnail -->
+            <a href="support.html" class="class-card">
+                <img src="support.png" alt="Support Corner">
+                <h2>Support Corner</h2>
+                <p>Get Help and Support</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Orli International School | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>
