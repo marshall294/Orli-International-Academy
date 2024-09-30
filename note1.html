@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Year 1 Assessment Page for Orli International School">
+    <meta name="description" content="Year 1 Lesson Notes Page for Orli International School">
     <meta name="author" content="Orli International School">
-    <title>Year 1 Assessment - Orli International School</title>
+    <title>Year 1 Lesson Notes - Orli International School</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -31,11 +31,24 @@
             margin-top: 15px;
         }
 
+        .instructions {
+            font-size: 1.2em;
+            margin: 20px;
+        }
+
+        .date-time {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
         .buttons-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 40px;
             margin-top: 50px;
+            margin-bottom: 80px;
         }
 
         .button {
@@ -80,7 +93,15 @@
     </div>
 
     <div class="welcome-message">
-        Year 1 Assessments
+        Year 1 Lesson Notes
+    </div>
+
+    <div class="date-time">
+        Date: <span id="current-date"></span> | Time: <span id="current-time"></span>
+    </div>
+
+    <div class="instructions">
+        Click on the subject buttons below to access the lesson notes.
     </div>
 
     <div class="buttons-container">
@@ -90,29 +111,40 @@
         <a href="https://forms.gle/7Vb9ykokKsW8WJRS8" class="button">
             English
         </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJMZE_5az_jcaHNULa7aIdbUTVeiNLIV5lkcRkkXjdv8j-7A/viewform" class="button">
-            Science
+        <a href="https://example.com/agricultural-science" class="button">
+            Agricultural Science
         </a>
-        <a href="https://forms.gle/7Vb9ykokKsW8WJRS8" class="button">
+        <a href="https://example.com/home-economics" class="button">
             Home Economics
         </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJMZE_5az_jcaHNULa7aIdbUTVeiNLIV5lkcRkkXjdv8j-7A/viewform" class="button">
-            Mathematics
+        <a href="https://example.com/general-knowledge" class="button">
+            General Knowledge
         </a>
-        <a href="https://forms.gle/7Vb9ykokKsW8WJRS8" class="button">
-            English
-        </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJMZE_5az_jcaHNULa7aIdbUTVeiNLIV5lkcRkkXjdv8j-7A/viewform" class="button">
+        <a href="https://example.com/science" class="button">
             Science
         </a>
-        <a href="https://forms.gle/7Vb9ykokKsW8WJRS8" class="button">
-            Home Economics
+        <a href="https://example.com/crs" class="button">
+            C.R.S.
         </a>
     </div>
 
     <footer>
         <p>© 2024 Orli International School | All Rights Reserved</p>
     </footer>
+
+    <script>
+        // Function to update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').innerText = now.toLocaleDateString(undefined, options);
+            document.getElementById('current-time').innerText = now.toLocaleTimeString();
+        }
+
+        // Update date and time every second
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Initial call
+    </script>
 </body>
 
 </html>

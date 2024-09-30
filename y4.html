@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Overview</title>
+  <style>
+    /* General body styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* 3D Colorful School Name */
+    .school-name {
+      text-align: center;
+      font-size: 3em;
+      font-weight: bold;
+      color: white;
+      text-shadow: 3px 3px 0px black, 6px 6px 0px #4CAF50, 9px 9px 0px #F44336;
+      margin-top: 4px;
+    }
+
+    /* Animated Welcome Message */
+    .welcome-message {
+      text-align: center;
+      font-size: 2.2em;
+      color: black;
+      margin-top: 15px;
+      animation: bounce 2s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* Header styling */
+    header {
+      background-color: #4CAF50;
+      width: 100%;
+      padding: 20px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInDown 1s ease-out;
+    }
+
+    header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-top: 2px;
+    }
+
+    header h1, header h2 {
+      margin: 0;
+      padding: 5px 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Assessment container and card */
+    .assessment-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 80px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .assessment-card {
+      width: 250px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .assessment-card:hover {
+      transform: scale(1.05);
+      background-color: #e7f5e9;
+    }
+
+    .assessment-card strong {
+      font-size: 1.2em;
+      margin-bottom: 5px;
+    }
+
+    .assessment-card p {
+      margin: 5px 0;
+    }
+
+    .assessment-card a {
+      color: blue;
+      text-decoration: none;
+      margin-top: 10px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .assessment-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+
+  <!-- Header with school logo and information -->
+  <header>
+    <img src="logo.png" alt="School Logo"> <!-- Replace with the actual logo image -->
+    <!-- 3D School Name -->
+    <div class="school-name">
+        Orli International School
+    </div>
+    <h2>Class: Year 4 Assessments Portal</h2> <!-- Class and Subject -->
+  </header>
+
+  <div class="form-container">
+    <!-- Animated Welcome Message -->
+    <div class="welcome-message">
+        Access your assessments!
+    </div>
+
+    <div class="assessment-container" id="assessmentContainer">
+      <!-- Assessment topics will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <script>
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBJWWthxfOsI51C_2sRFTGW3BvJYCTV5QI",
+  authDomain: "year-4-300a5.firebaseapp.com",
+  projectId: "year-4-300a5",
+  storageBucket: "year-4-300a5.appspot.com",
+  messagingSenderId: "531814684646",
+  appId: "1:531814684646:web:a22d9a8f0bc5667344e827"
+};
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Function to load assessments and display them on the index page
+    function loadAssessments() {
+      db.ref('assessments/').once('value', (snapshot) => {
+        const assessments = snapshot.val();
+        const assessmentContainer = document.getElementById('assessmentContainer');
+        assessmentContainer.innerHTML = '';  // Clear existing assessment cards
+
+        for (const assessmentId in assessments) {
+          const assessment = assessments[assessmentId];
+          const assessmentCard = document.createElement('div');
+          assessmentCard.classList.add('assessment-card');
+          
+          // Assessment details: topic, date, and links
+          assessmentCard.innerHTML = `
+            <strong>${assessment.topic}</strong>
+            <p>Subject: ${assessment.subject}</p>
+            <p>Date: ${assessment.date}</p>
+            <a href="${assessment.assessmentLink}" target="_blank">Assessment Link</a>
+          `;
+          
+          assessmentContainer.appendChild(assessmentCard);
+        }
+      });
+    }
+
+    // Load assessments on page load
+    window.onload = function() {
+      loadAssessments();
+    };
+  </script>
+</body>
+</html>
