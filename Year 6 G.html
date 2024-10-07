@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ff6347; /* Tomato color */
+            text-shadow: 2px 2px 4px #aaa; /* Slight shadow effect */
+        }
+        p.instructions {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            text-align: center;
+        }
+        .emoji {
+            font-size: 5em;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1000px;
+            width: 100%;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+        iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Your Assessment</h1>
+    
+    <!-- Instructions for the students -->
+    <p class="instructions">
+        Please carefully read the questions in the PDF below and scroll down to fill out the Google Form with your answers. 
+        Ensure you complete all questions before submitting. Good luck!
+    </p>
+
+    <div class="content-container">
+        <!-- Displaying PDF with questions -->
+        <embed src="Year 6 General Knowledge.pdf" type="application/pdf" class="pdf-viewer" title="Assessment Questions PDF">
+
+        <!-- Embed the Google Form here for answers submission -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe_2hG-k9_amCkLi_W8F9enFVuqKI0n1w92LI8BoC8VTu79DQ/viewform?embedded=true" 
+                frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+
+</body>
+</html>
